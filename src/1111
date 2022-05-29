@@ -1,0 +1,12 @@
+<script context="module">
+    export const load = async ({ fetch }) => {
+        const res = await fetch("/api/endpoint.json.js");
+        console.log(res)
+        const data = await res.json();
+        return {
+            props : {
+                data,
+            }
+        }
+    }
+</script>

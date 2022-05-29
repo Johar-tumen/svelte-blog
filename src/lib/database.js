@@ -1,4 +1,12 @@
 import sqlite from 'better-sqlite3'
 
-const db = sqlite('./blog.db')
-export default db
+const DB = new sqlite('./src/lib/blog.db')
+
+const schema = `CREATE TABLE IF NOT EXISTS posts(
+    id INTEGER NOT NULL PRIMARY KEY, 
+    title TEXT NOT NULL 
+)`;
+
+DB.exec(schema)
+
+export default DB
